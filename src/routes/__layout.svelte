@@ -62,6 +62,7 @@
         flex-direction: column;
         min-height: var(--content-min-height);
         overflow-y:auto;
+        padding: 8px;
     }
 </style>
 
