@@ -7,7 +7,7 @@ npm install
 npm run dev
 ```
 
-Also viewable [here](https://sveltekit-node-deployment.herokuapp.com/)
+Also viewable [here](https://sveltekit-singlepage-pwa.herokuapp.com/)
 
 ```
 npm run build
@@ -67,11 +67,19 @@ Builds as a node app in /build
 
 * Site will not reroute to app if site visted again --- as per Apple
 
-* Uninstallable like any other iPhone app
+* Uninstallable like any other iOS app
 
 ##### Chrome:
 
 * Install unsupported --- as per Apple
+
+### PWA Checklist
+
+* /src/service-worker.js - allows for the app to store data on phone to be viewed offline and updates pages when reconnecting to the internet
+
+* /src/static/manifest.json - set of required icons(located at /static/icons), names, and base options
+
+* https - this is required in production. hosting a free project on Heroku(http://www.heroku.com) gives you this. For your own domain you will need to be sure to get an SSL certificate
 
 ### Styling
 
@@ -86,6 +94,7 @@ Builds as a node app in /build
 
 * /src/routes/__layout.svelte contains the variables to change UI size in the style tag
     * adjusting the navbar or footer hight automatically changes the returned pages hight
+
 * The layout component also detects the user's browser onMount(). Any needed code for each browser can be added there. For now just a console.log() to show it's working
 
 #### __error.svelte
