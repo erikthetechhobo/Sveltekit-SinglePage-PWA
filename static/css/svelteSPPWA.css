@@ -1,0 +1,15 @@
+/*
+    makes the svelte app take up the entire browser window
+*/
+body {
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+#svelte {
+    margin-top: 0vh;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    font-size: 1rem;
+}
