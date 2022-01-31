@@ -1,6 +1,11 @@
 /*
     makes the svelte app take up the entire browser window
 */
+html {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
 body {
     min-height: 100vh;
     margin: 0px;
@@ -12,4 +17,5 @@ body {
     display: flex;
     flex-flow: column;
     font-size: 1rem;
+    overflow: hidden;
 }
