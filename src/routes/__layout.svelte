@@ -3,13 +3,9 @@
 
     import Navbar from "../components/navbar.svelte";
 
-    //footer data
-    var date = new Date();
-    var year = date.getFullYear();
-
+    let browser;
     //detects users browser
     onMount(async () => {
-        let browser;
 
         const browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
@@ -30,7 +26,6 @@
         if(browserTest.includes("Trident")) {
             browser = "Internet Explorer";
         }
-        console.log('Detected browser: ' + browser);
     });
 </script>
 
@@ -39,31 +34,32 @@
     <!--entry point to url response-->
     <slot />
 </div>
-<footer><span>{year}&copy;</span></footer>
+<footer><span>Demo</span><span>Client: {browser}</span></footer>
 
 <style>
     :root{
         --dropdown-width: 200px;
         --navbar-height: 56px;
         --footer-height: 28px;
-        --content-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
+        --content-height: calc(100vh - var(--navbar-height));
     }
     footer {
+        height: var(--footer-height);
+
         position: -webkit-sticky;
         position: sticky;
         bottom: 0;
-        height: var(--footer-height);
+
         display: flex;
-        flex-direction: row-reverse;
         justify-content: space-between;
-    }
-    #PageReturn {
-        display: flex;
-        flex-direction: column;
-        height: var(--content-height);
-        overflow-y:auto;
         padding-left: 8px;
         padding-right: 8px;
+    }
+    #PageReturn {
+        height: var(--content-height);
+        overflow-y:auto;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 </style>
 
