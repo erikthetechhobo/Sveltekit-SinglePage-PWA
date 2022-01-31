@@ -1,6 +1,6 @@
 <script>
     let menuActive = false;
-    let menuText = "Menu";
+    let menuText = "=";
 
     function toggleMenu() {
         if(menuActive) {
@@ -13,18 +13,18 @@
     function closeMenu() {
         if(menuActive) {
             menuActive = false;
-            menuText = "Menu"
+            menuText = "="
             document.getElementById("Menu").style.width = "";
-            document.getElementById("Menu").style.borderRadius = "32px 0px 0px 32px";
+            document.getElementById("Menu").style.borderRadius = "var(--dropdown-open-radius)";
             document.getElementById("Dropdown").style.display = "none";
         }
     }
     function openMenu() {
         if(menuActive == false) {
             menuActive = true;
-            menuText = "X";
+            menuText = "x";
             document.getElementById("Menu").style.width = "var(--dropdown-width)";
-            document.getElementById("Menu").style.borderRadius = "32px 0px 0px 0px";
+            document.getElementById("Menu").style.borderRadius = "var(--dropdown-closed-radius)";
             document.getElementById("Dropdown").style.display = "flex";
         }
     }
@@ -43,15 +43,20 @@
 </div>
 
 <style>
+    :root{
+        --dropdown-width: 200px;
+        --dropdown-open-radius: 32px 0px 0px 32px;
+        --dropdown-closed-radius: 32px 0px 0px 0px;
+    }
     button {
         -webkit-appearance: none;
         border-style: none;
         height: var(--navbar-height);
-        border-radius: 32px 0px 0px 32px;
-        padding-left: 32px;
-        padding-right: 24px;
+        border-radius: var(--dropdown-open-radius);
+        padding-left: 30px;
+        padding-right: 20px;
         text-align: left;
-        font-size: 24px;
+        font-size: 2rem;
         cursor: pointer;
     }
     #NavBar {
@@ -70,15 +75,14 @@
         top: var(--navbar-height);
         right: 0;
         width: var(--dropdown-width);
-        list-style-type: none;
         border-radius: 0px 0px 0px 16px;
         text-align: left;
-        font-size: 24px;
-        padding-bottom: 1rem;
+        font-size: 1.5rem;
+        padding-bottom: 20px;
     }
     #HomeLink {
-        font-size: 32px;
-        padding: 10px;
+        font-size: 2rem;
+        padding-left: 10px
     }
     .link{
         padding-left: 2rem;

@@ -38,7 +38,6 @@
 
 <style>
     :root{
-        --dropdown-width: 200px;
         --navbar-height: 56px;
         --footer-height: 28px;
         --content-height: calc(100vh - var(--navbar-height));
