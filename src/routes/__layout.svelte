@@ -35,18 +35,18 @@
 </script>
 
 <Navbar/>
-    <div id="PageReturn">
-        <!--entry point to url response-->
-        <slot />
-    </div>
+<div id="PageReturn">
+    <!--entry point to url response-->
+    <slot />
+</div>
 <footer><span>{year}&copy;</span></footer>
 
 <style>
     :root{
         --dropdown-width: 200px;
         --navbar-height: 56px;
-        --footer-height: 18px;
-        --content-min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
+        --footer-height: 28px;
+        --content-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
     }
     footer {
         position: -webkit-sticky;
@@ -60,7 +60,7 @@
     #PageReturn {
         display: flex;
         flex-direction: column;
-        min-height: var(--content-min-height);
+        height: var(--content-height);
         overflow-y:auto;
         padding-left: 8px;
         padding-right: 8px;

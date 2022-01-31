@@ -61,7 +61,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        min-height: var(--navbar-height);
+        height: var(--navbar-height);
     }
     #Dropdown {
         display: none;
