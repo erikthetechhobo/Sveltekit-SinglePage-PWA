@@ -47,6 +47,9 @@
         --footer-height: 28px;
         --content-height: calc(100vh - var(--navbar-height));
     }
+    html {
+        
+    }
     footer {
         height: var(--footer-height);
 
