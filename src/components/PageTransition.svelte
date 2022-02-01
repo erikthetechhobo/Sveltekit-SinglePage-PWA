@@ -11,9 +11,8 @@
 
 <style>
     main {
-        min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+        height: calc(100vh - var(--navbar-height) - var(--footer-height));
         padding-left: 10px;
         padding-right: 10px;
-        overflow: auto;
     }
 </style>
