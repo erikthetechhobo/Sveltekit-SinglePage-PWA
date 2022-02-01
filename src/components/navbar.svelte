@@ -30,7 +30,7 @@
     }
 </script>
 
-<div id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
+<nav id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
     <a id="HomeLink" href="/" on:click={closeMenu}>Home</a>
     <button id="Menu" on:click={toggleMenu} >{menuText}</button>
     <div id="Dropdown">
@@ -40,7 +40,7 @@
         
             <a class="link" href="/pages/longpage" on:click={closeMenu}>long page</a>
     </div>
-</div>
+</nav>
 
 <style>
     :root{
