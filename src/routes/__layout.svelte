@@ -51,8 +51,8 @@
 
         display: flex;
         justify-content: space-between;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     #PageReturn {
         height: var(--content-height);
