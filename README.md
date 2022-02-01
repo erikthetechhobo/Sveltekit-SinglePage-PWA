@@ -43,7 +43,13 @@ Builds as a node app in /build
 
 ##### Chrome: 
 
-* Not Tested Yet!!!
+* Can install from button located in address bar
+
+* Splash screen not supported
+
+* once installed an icon is put on your desktop
+
+* Uninstall: launch app, click ellipsis menu at top, then click uninstall
 
 #### Android
 
