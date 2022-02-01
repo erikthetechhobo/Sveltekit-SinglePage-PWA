@@ -7,7 +7,9 @@
     in:fly="{{  x: 60, duration: animationSync, delay: animationSync }}"
     out:fly="{{ x: -60, duration: animationSync }}" 
     >
-    <slot/>
+    <div id="PageReturn">
+        <slot/>
+    </div>
 </main>
 
 <style>
@@ -16,5 +18,8 @@
         padding-left: 10px;
         padding-right: 10px;
         overflow: auto;
+    }
+    #PageReturn {
+        padding-bottom: var(--footer-height);
     }
 </style>
