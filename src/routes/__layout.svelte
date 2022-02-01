@@ -25,10 +25,6 @@
         if(browserTest.includes("Trident")) {
             browser = "Internet Explorer";
         }
-        //event listener on load scroll down 1px
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 1);
-        });
     });
 </script>
 
