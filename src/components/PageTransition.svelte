@@ -14,6 +14,5 @@
         max-height: calc(100vh - calc(var(--header-height) + var(--footer-height)));
         padding-left: 10px;
         padding-right: 10px;
-        overflow: auto;
     }
 </style>
