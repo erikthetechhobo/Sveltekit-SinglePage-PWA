@@ -4,9 +4,10 @@
 body {
     margin:0;
     padding:0;
+    overflow: hidden;
 }
 #svelte {
-    height: 100vh;
+    height: calc(100vh + 1px);
     display: flex;
     flex-direction: column;
     font-size: 1rem;

@@ -26,6 +26,11 @@
         if(browserTest.includes("Trident")) {
             browser = "Internet Explorer";
         }
+        window.addEventListener("load",function() {
+            setTimeout(function() {
+                window.scrollTo(0, 1);
+            }, 1000);
+        });
     });
 </script>
 
