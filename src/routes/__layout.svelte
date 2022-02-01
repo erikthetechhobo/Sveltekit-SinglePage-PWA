@@ -25,6 +25,10 @@
         if(browserTest.includes("Trident")) {
             browser = "Internet Explorer";
         }
+        //scroll to top on page load
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 1);
+        });
     });
 </script>
 
