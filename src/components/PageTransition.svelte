@@ -3,8 +3,8 @@
 </script>
 
 <main
-    in:fly="{{  y: -50, duration: 200, delay: 300 }}"
-    out:blur="{{ y: -50, duration: 200 }}" 
+    in:fly="{{  x: 300, duration: 200, delay: 300 }}"
+    out:blur="{{ x: -300, duration: 200 }}" 
     >
     <slot/>
 </main>
