@@ -8,3 +8,11 @@
     >
     <slot/>
 </main>
+
+<style>
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: auto;
+    }
+</style>

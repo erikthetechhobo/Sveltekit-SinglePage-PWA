@@ -6,7 +6,6 @@
     let browser;
     //detects users browser
     onMount(async () => {
-
         const browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
@@ -30,33 +29,22 @@
 </script>
 
 <Navbar/>
-<div id="PageReturn">
-    <!--entry point to url response-->
-    <slot />
-</div>
+<!--entry point to url response-->
+<slot />
 <footer><span>Demo</span><span>Client: {browser}</span></footer>
 
 <style>
     :root{
-        --navbar-height: 56px;
-        --footer-height: 28px;
-        --content-height: calc(100vh - var(--navbar-height));
+        --footer-height: 30px;
     }
     footer {
-        height: var(--footer-height);
-
+        min-height: var(--footer-height);
+        margin-top: auto;
         position: -webkit-sticky;
         position: sticky;
-        bottom: 0;
 
         display: flex;
         justify-content: space-between;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    #PageReturn {
-        height: var(--content-height);
-        overflow-y:auto;
         padding-left: 10px;
         padding-right: 10px;
     }
