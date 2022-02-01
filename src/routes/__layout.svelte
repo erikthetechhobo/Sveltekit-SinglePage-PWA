@@ -18,7 +18,7 @@
             browser = "Firefox";
         }
         switch(browser) {
-            case "Safari": browserOptions = { name: 'Safari', message: 'To install the Progresive Web App click the "<img src="/icons/shareButton.png" alt="apple share button" height="30px" width="24px">" button and add to home screen'}
+            case "Safari": browserOptions = { name: 'Safari', message: `To install the Progresive Web App click the <img src="/icons/shareButton.png alt="apple share button" height="30px" width="24px">" button and add to home screen`}
                 break;
             case "Chrome": browserOptions = { name: 'Chrome', message: 'To install the Progresive Web App click the "&#8942;" button in the top right and click install'}
                 break;
