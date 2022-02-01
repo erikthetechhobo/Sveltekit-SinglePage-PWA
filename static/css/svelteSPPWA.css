@@ -2,6 +2,7 @@
     makes the svelte app take up the entire browser window
 */
 body {
+    position: fixed;
     margin:0;
     padding:0;
     overflow: hidden;
