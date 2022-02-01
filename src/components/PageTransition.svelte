@@ -1,10 +1,11 @@
 <script>
     import { fly, blur } from 'svelte/transition';
+    let animationSync = 500;
 </script>
 
 <main
-    in:fly="{{  x: 300, duration: 200, delay: 300 }}"
-    out:blur="{{ x: -300, duration: 200 }}" 
+    in:fly="{{  x: 60, duration: animationSync, delay: animationSync }}"
+    out:fly="{{ x: -60, duration: animationSync }}" 
     >
     <slot/>
 </main>
