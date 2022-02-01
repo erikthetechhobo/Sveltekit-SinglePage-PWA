@@ -44,6 +44,7 @@
 
 <style>
     :root{
+        --navbar-height: 60px;
         --dropdown-width: 200px;
         --dropdown-open-radius: 32px 0px 0px 32px;
         --dropdown-closed-radius: 32px 0px 0px 0px;

@@ -27,7 +27,6 @@ html, body, footer {
     background-color: var(--banner-bg-color);
 }
 #NavBar a, button{
-    
     color: var(--banner-text);
 }
 #NavBar button {
