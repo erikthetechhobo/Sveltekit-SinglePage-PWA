@@ -10,19 +10,22 @@
         const browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
-            browserOptions = { name: 'Safari', message: 'To install the Progresive Web App click the "<img src="/icons/shareButton.png" alt="apple share button" height="30px" width="24px">" button and add to home screen'}
         }
         if(browserTest.includes("Chrome")) {
             browser = "Chrome";
-            browserOptions = { name: 'Chrome', message: 'To install the Progresive Web App click the "&#8942;" button in the top right and click install'}
         }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
-            browserOptions = { name: 'Unsupported', message: 'Browser may not support Progressive Web Apps'}
         }
-        else {
-            browser = "Unsupported";
-            browserOptions = { name: 'Unsupported', message: 'Browser may not support Progressive Web Apps'}
+        switch(browser) {
+            case "Safari": browserOptions = { name: 'Safari', message: 'To install the Progresive Web App click the "<img src="/icons/shareButton.png" alt="apple share button" height="30px" width="24px">" button and add to home screen'}
+                break;
+            case "Chrome": browserOptions = { name: 'Chrome', message: 'To install the Progresive Web App click the "&#8942;" button in the top right and click install'}
+                break;
+            case "Firefox": browserOptions = { name: 'Firefox', message: 'Browser does not support Progressive Web Apps'}
+                break;
+            default: browserOptions = { name: 'Unsupported', message: 'Browser may not support Progressive Web Apps'}
+                break;
         }
         console.log(browserOptions);
     });
