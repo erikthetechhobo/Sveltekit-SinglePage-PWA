@@ -5,9 +5,23 @@
 
     let browser;
     let browserOptions = {};
+
+    let pwaCheck
+    function isRunningPWA() {
+        // For iOS
+        if(window.navigator.standalone) return true
+
+        // For Android
+        if(window.matchMedia('(display-mode: standalone)').matches) return true
+
+        // If neither is true, it's not installed
+        return false
+    }
+
     //detects users browser
     onMount(async () => {
         const browserTest = await navigator.userAgent;
+        pwaCheck = await isRunningPWA();
         if(browserTest.includes("Safari")) {
             browser = "Safari";
         }
@@ -33,7 +47,11 @@
 <Navbar/>
 <!--entry point to url response-->
 <slot />
+{#if pwaCheck}
+<footer><span>Installed</span><span>Client: {browserOptions.name}</span></footer>
+{:else}
 <footer><span>{browserOptions.message}</span><span>Client: {browserOptions.name}</span></footer>
+{/if}
 
 <style>
     :root{
