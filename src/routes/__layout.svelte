@@ -4,7 +4,7 @@
     import Navbar from "../components/navbar.svelte";
 
     let browser;
-    let browserOptions= [];
+    let browserOptions = {};
     //detects users browser
     onMount(async () => {
         const browserTest = await navigator.userAgent;
@@ -27,14 +27,13 @@
             default: browserOptions = { name: 'Unsupported', message: 'Browser may not support Progressive Web Apps'}
                 break;
         }
-        console.log(browserOptions);
     });
 </script>
 
 <Navbar/>
 <!--entry point to url response-->
 <slot />
-<footer><span>{browserOptions.message}</span><span>Client: {browser}</span></footer>
+<footer><span>{browserOptions.message}</span><span>Client: {browserOptions.name}</span></footer>
 
 <style>
     :root{
