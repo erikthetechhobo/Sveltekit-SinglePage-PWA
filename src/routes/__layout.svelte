@@ -28,19 +28,13 @@
         if(browserTest.includes("Chrome")) {
             browser = "Chrome";
         }
+        if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
+            browser = "Desktop Chrome";
+        }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        switch(browser) {
-            case "Safari": browserOptions = { name: 'Safari', message: `To install the Progresive Web App click the <img src="/icons/shareButton.png alt="apple share button" height="30px" width="24px">" button and add to home screen`}
-                break;
-            case "Chrome": browserOptions = { name: 'Chrome', message: 'To install the Progresive Web App click the "&#8942;" button in the top right and click install'}
-                break;
-            case "Firefox": browserOptions = { name: 'Firefox', message: 'Browser does not support Progressive Web Apps'}
-                break;
-            default: browserOptions = { name: 'Unsupported', message: 'Browser may not support Progressive Web Apps'}
-                break;
-        }
+        console.log(browserTest);
     });
 </script>
 
@@ -48,9 +42,18 @@
 <!--entry point to url response-->
 <slot />
 {#if pwaCheck}
-<footer><span>Installed</span><span>Client: {browserOptions.name}</span></footer>
+    <footer><span>Installed</span><span>Client: {browser}</span></footer>
 {:else}
-<footer><span>{browserOptions.message}</span><span>Client: {browserOptions.name}</span></footer>
+    {#if browser == "Safari"}
+        <footer><span>To install Web App, click the <img src="/icons/shareButton.png" alt="apple share button" height="30px" width="24px"></span></footer>
+    {:else if browser == "Chrome"}
+        <footer><span>To install, Web App click the "&#8942;" button in the top right and click install</span><span>Client: {browser}</span></footer>
+    {:else if browser == "Desktop Chrome"}
+        <footer><span>To install, Web App click the install button located in the address bar</span><span>Client: {browser}</span></footer>
+    {:else}
+        <footer><span>Install not supported</span><span>Client: {browser}</span></footer>
+    {/if}
+    
 {/if}
 
 <style>
