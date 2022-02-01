@@ -20,6 +20,6 @@
         overflow: auto;
     }
     #PageReturn {
-        padding-bottom: var(--footer-height);
+        padding-bottom: calc(var(--footer-height) * 2);
     }
 </style>
