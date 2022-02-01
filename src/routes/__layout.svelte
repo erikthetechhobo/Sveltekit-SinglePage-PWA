@@ -26,11 +26,6 @@
         if(browserTest.includes("Trident")) {
             browser = "Internet Explorer";
         }
-        window.addEventListener("load",function() {
-            setTimeout(function() {
-                window.scrollTo(0, 1);
-            }, 1000);
-        });
     });
 </script>
 
@@ -46,9 +41,6 @@
         --navbar-height: 56px;
         --footer-height: 28px;
         --content-height: calc(100vh - var(--navbar-height));
-    }
-    html {
-        
     }
     footer {
         height: var(--footer-height);
