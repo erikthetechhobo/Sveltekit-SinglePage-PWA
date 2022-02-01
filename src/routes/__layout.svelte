@@ -40,8 +40,10 @@
     footer {
         min-height: var(--footer-height);
         margin-top: auto;
+
         position: -webkit-sticky;
         position: sticky;
+        bottom: 0;
 
         display: flex;
         justify-content: space-between;
