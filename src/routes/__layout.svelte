@@ -1,12 +1,4 @@
-<script>
-    import {onMount} from 'svelte';
-
-    import Navbar from "../components/navbar.svelte";
-
-    let browser;
-    let browserOptions = {};
-
-    let pwaCheck
+<script context="module">
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -18,6 +10,14 @@
         // If neither is true, it's not installed
         return false
     }
+    const pwaCheck = isRunningPWA();
+</script>
+<script>
+    import {onMount} from 'svelte';
+
+    import Navbar from "../components/navbar.svelte";
+
+    let browser;
 
     //detects users browser
     onMount(async () => {
@@ -32,11 +32,11 @@
         if(browserTest.includes("Chrome")) {
             browser = "Mobile Chrome";
         }
-        if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
-            browser = "Windows Chrome";
-        }
         if(browserTest.includes("Chrome") && browserTest.includes("Macintosh")) {
             browser = "Macos Chrome";
+        }
+        if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
+            browser = "Windows Chrome";
         }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
@@ -52,9 +52,9 @@
     <footer><span>Installed</span><span>Client: {browser}</span></footer>
 {:else}
     {#if browser == "Safari"}
-        <footer><span>To install Web App, click the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"></span><span>Client: {browser}</span></footer>
+        <footer><span>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</span><span>Client: {browser}</span></footer>
     {:else if browser == "Mobile Chrome" || browser == "Macos Chrome"}
-        <footer><span>To install Web App, click the "&#8942;" button in the top right of your browser and click install</span><span>Client: {browser}</span></footer>
+        <footer><span>To install Web App, tap the &#8942; in the top right of your browser and click install</span><span>Client: {browser}</span></footer>
     {:else if browser == "Windows Chrome"}
         <footer><span>To install Web App, click the install button located in the address bar</span><span>Client: {browser}</span></footer>
     {:else}
