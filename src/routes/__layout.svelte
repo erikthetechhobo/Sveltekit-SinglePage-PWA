@@ -1,4 +1,11 @@
-<script context="module">
+<script>
+    import {onMount} from 'svelte';
+
+    import Navbar from "../components/navbar.svelte";
+
+    let browser;
+
+    let pwaCheck
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -10,14 +17,6 @@
         // If neither is true, it's not installed
         return false
     }
-    const pwaCheck = isRunningPWA();
-</script>
-<script>
-    import {onMount} from 'svelte';
-
-    import Navbar from "../components/navbar.svelte";
-
-    let browser;
 
     //detects users browser
     onMount(async () => {
