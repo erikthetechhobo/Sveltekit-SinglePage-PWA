@@ -1,10 +1,4 @@
-<script>
-    import {onMount} from 'svelte';
-
-    import Navbar from "../components/navbar.svelte";
-
-    //detects if running app or in browser
-    let pwaCheck = true;
+<script context="module">
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -16,11 +10,18 @@
         // If neither is true, it's not installed
         return false
     }
+    export const pwaChecker = isRunningPWA();
+</script>
+<script>
+    import {onMount} from 'svelte';
 
+    import Navbar from "../components/navbar.svelte";
+
+    //detects if running app or in browser
+    let pwaCheck = pwaChecker;
     //detects users browser
     let browser;
     onMount(async () => {
-        pwaCheck = isRunningPWA();
         var browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
