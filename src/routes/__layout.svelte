@@ -10,7 +10,7 @@
         if(window.navigator.standalone) return true
 
         // For Android
-        if(window.matchMedia('(display-mode: standalone)').matches) true
+        if(window.matchMedia('(display-mode: standalone)').matches) return true
 
         // If neither is true, it's not installed
         return false
