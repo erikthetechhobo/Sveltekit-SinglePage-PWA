@@ -9,16 +9,16 @@
     let browser;
 
     let pwaCheck
-    export function isRunningPWA() {
+    function isRunningPWA() {
         // For iOS
-        if(window.navigator.standalone) return pwaCheck = true
+        if(window.navigator.standalone) return true
 
         // For Android
-        if(window.matchMedia('(display-mode: standalone)').matches) pwaCheck = true
+        if(window.matchMedia('(display-mode: standalone)').matches) true
 
 
         // If neither is true, it's not installed
-        return pwaCheck = false
+        return false
     }
 
     //detects users browser
@@ -42,7 +42,8 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        isRunningPWA();
+        pwaCheck = isRunningPWA();
+        console.log(pwaCheck);
         console.log(browserTest);
     });
 </script>
