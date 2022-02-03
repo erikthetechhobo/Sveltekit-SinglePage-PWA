@@ -8,7 +8,7 @@
 
     let browser;
 
-    let pwaCheck
+    let pwaCheck;
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -52,7 +52,7 @@
 <Navbar/>
 <!--entry point to url response-->
 <slot />
-{#if pwaCheck}
+{#if $pwaCheck}
     <footer><span>Installed</span><span>Client: {browser}</span></footer>
 {:else}
     {#if browser == "Safari"}
