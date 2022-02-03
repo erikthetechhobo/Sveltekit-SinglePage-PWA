@@ -1,4 +1,10 @@
-<script context="module">
+<script>
+    import {onMount} from 'svelte';
+
+    import Navbar from "../components/navbar.svelte";
+
+    //detects if running app or in browser
+    let pwaCheck;
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -6,19 +12,10 @@
         // For Android
         if(window.matchMedia('(display-mode: standalone)').matches) true
 
-
         // If neither is true, it's not installed
         return false
     }
-    export const pwaChecker = isRunningPWA();
-</script>
-<script>
-    import {onMount} from 'svelte';
 
-    import Navbar from "../components/navbar.svelte";
-
-    //detects if running app or in browser
-    let pwaCheck = pwaChecker;
     //detects users browser
     let browser;
     onMount(async () => {
@@ -41,6 +38,7 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
+        pwaCheck = await isRunningPWA();
         console.log(browserTest);
     });
 </script>
