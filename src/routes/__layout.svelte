@@ -42,11 +42,12 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
+        isRunningPWA();
         console.log(browserTest);
     });
 </script>
 
-<Navbar on:load={isRunningPWA()}/>
+<Navbar/>
 <!--entry point to url response-->
 <slot />
 {#if pwaCheck}
