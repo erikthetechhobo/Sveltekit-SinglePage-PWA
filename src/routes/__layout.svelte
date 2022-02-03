@@ -4,7 +4,7 @@
     import Navbar from "../components/navbar.svelte";
 
     //detects if running app or in browser
-    let pwaCheck;
+    let pwaCheck = true;
     function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return true
@@ -20,6 +20,7 @@
     //detects users browser
     let browser;
     onMount(async () => {
+        pwaCheck = isRunningPWA();
         var browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
@@ -38,14 +39,6 @@
         }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
-        }
-        window.onload = (event) =>{
-            if(isRunningPWA()){
-                pwaCheck = true;
-            }
-            else{
-                pwaCheck = false;
-            }
         }
         console.log(browserTest);
     });
