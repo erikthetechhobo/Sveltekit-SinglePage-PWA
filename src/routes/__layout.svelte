@@ -6,8 +6,7 @@
 
     import Navbar from "../components/navbar.svelte";
 
-    let browser;
-
+    //detects if running app or in browser
     let pwaCheck;
     function isRunningPWA() {
         // For iOS
@@ -22,6 +21,7 @@
     }
 
     //detects users browser
+    let browser;
     onMount(async () => {
         var browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
@@ -52,7 +52,7 @@
 <Navbar/>
 <!--entry point to url response-->
 <slot />
-{#if $pwaCheck}
+{#if pwaCheck}
     <footer><span>Installed</span><span>Client: {browser}</span></footer>
 {:else}
     {#if browser == "Safari"}
