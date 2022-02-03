@@ -41,6 +41,9 @@
             browser = "Firefox";
         }
         console.log(browserTest);
+        window.addEventListener('load', function() {
+            pwaCheck = isRunningPWA();
+        });
     });
 </script>
 
