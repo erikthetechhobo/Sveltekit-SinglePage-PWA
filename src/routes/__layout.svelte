@@ -9,7 +9,7 @@
     let browser;
 
     let pwaCheck
-    function isRunningPWA() {
+    export function isRunningPWA() {
         // For iOS
         if(window.navigator.standalone) return pwaCheck = true
 
@@ -24,7 +24,6 @@
     //detects users browser
     onMount(async () => {
         var browserTest = await navigator.userAgent;
-        isRunningPWA();
         if(browserTest.includes("Safari")) {
             browser = "Safari";
         }
@@ -47,7 +46,7 @@
     });
 </script>
 
-<Navbar/>
+<Navbar on:load={isRunningPWA()}/>
 <!--entry point to url response-->
 <slot />
 {#if pwaCheck}
