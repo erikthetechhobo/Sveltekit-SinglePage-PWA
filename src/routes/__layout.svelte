@@ -1,3 +1,6 @@
+<script context="module">
+
+</script>
 <script>
     import {onMount} from 'svelte';
 
@@ -8,20 +11,20 @@
     let pwaCheck
     function isRunningPWA() {
         // For iOS
-        if(window.navigator.standalone) return true
+        if(window.navigator.standalone) return pwaCheck = true
 
         // For Android
-        if(window.matchMedia('(display-mode: standalone)').matches) return true
+        if(window.matchMedia('(display-mode: standalone)').matches) pwaCheck = true
 
 
         // If neither is true, it's not installed
-        return false
+        return pwaCheck = false
     }
 
     //detects users browser
     onMount(async () => {
         var browserTest = await navigator.userAgent;
-        pwaCheck = await isRunningPWA();
+        isRunningPWA();
         if(browserTest.includes("Safari")) {
             browser = "Safari";
         }
@@ -41,9 +44,6 @@
             browser = "Firefox";
         }
         console.log(browserTest);
-        window.addEventListener('load', function() {
-            pwaCheck = isRunningPWA();
-        });
     });
 </script>
 
