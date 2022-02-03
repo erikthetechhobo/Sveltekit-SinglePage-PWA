@@ -42,8 +42,9 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        pwaCheck = isRunningPWA();
-        console.log(pwaCheck);
+        window.addEventListener('load', function() {
+             pwaCheck = isRunningPWA();
+         });
         console.log(browserTest);
     });
 </script>
