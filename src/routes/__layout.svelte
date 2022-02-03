@@ -39,6 +39,7 @@
             browser = "Firefox";
         }
         pwaCheck = await isRunningPWA();
+        console.log(`pwa return: ` + pwaCheck);
         console.log(browserTest);
     });
 </script>
