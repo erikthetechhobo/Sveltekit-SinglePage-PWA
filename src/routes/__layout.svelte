@@ -1,7 +1,4 @@
 <script context="module">
-
-</script>
-<script>
     import {onMount} from 'svelte';
 
     import Navbar from "../components/navbar.svelte";
@@ -42,9 +39,7 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        window.addEventListener('load', function() {
-             pwaCheck = isRunningPWA();
-         });
+        pwaCheck = isRunningPWA();
         console.log(browserTest);
     });
 </script>
