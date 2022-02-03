@@ -5,7 +5,7 @@
 
     //detects if running app or in browser
     let pwaCheck;
-    function isRunningPWA() {
+    const isRunningPWA = () => {
         // For iOS
         if(window.navigator.standalone) return true
 
@@ -38,7 +38,7 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        pwaCheck = await isRunningPWA();
+        pwaCheck = isRunningPWA();
         console.log(`pwa test pass: ${pwaCheck}`);
         console.log(browserTest);
     });
@@ -47,6 +47,9 @@
 <Navbar/>
 <!--entry point to url response-->
 <slot />
+<footer>
+
+</footer>
 {#if pwaCheck}
     <footer><span>Installed</span><span>Client: {browser}</span></footer>
 {:else}
