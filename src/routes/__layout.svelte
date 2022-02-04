@@ -6,10 +6,10 @@
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
-        // For iOS
+        // For Safari
         if(window.navigator.standalone) return true
 
-        // For Android
+        // For Chrome
         if(window.matchMedia('(display-mode: standalone)').matches) return true
 
         // If neither is true, it's not installed
@@ -48,21 +48,20 @@
 <!--entry point to url response-->
 <slot />
 <footer>
-
-</footer>
-{#if pwaCheck}
-    <footer><span>Installed</span><span>Client: {browser}</span></footer>
-{:else}
-    {#if browser == "Safari"}
-        <footer><span>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</span><span>Client: {browser}</span></footer>
-    {:else if browser == "Mobile Chrome" || browser == "Macos Chrome"}
-        <footer><span>To install Web App, tap the &#8942; in the top right of your browser and click install</span><span>Client: {browser}</span></footer>
-    {:else if browser == "Windows Chrome"}
-        <footer><span>To install Web App, click the install button located in the address bar</span><span>Client: {browser}</span></footer>
+    {#if pwaCheck}
+        <span>Installed</span><span>Client: {browser}</span>
     {:else}
-        <footer><span>Install not supported</span><span>Client: {browser}</span></footer>
+        {#if browser == "Safari"}
+            <span>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</span><span>Client: {browser}</span>
+        {:else if browser == "Mobile Chrome" || browser == "Macos Chrome"}
+            <span>To install Web App, tap the &#8942; in the top right of your browser and click install</span><span>Client: {browser}</span>
+        {:else if browser == "Windows Chrome"}
+            <span>To install Web App, click the install button located in the address bar</span><span>Client: {browser}</span>
+        {:else}
+            <span>Install not supported</span><span>Client: {browser}</span>
+        {/if}
     {/if}
-{/if}
+</footer>
 
 <style>
     :root{
@@ -84,5 +83,3 @@
         margin: 0px;
     }
 </style>
-
-
