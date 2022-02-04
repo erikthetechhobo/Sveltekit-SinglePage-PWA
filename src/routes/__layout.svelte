@@ -2,7 +2,6 @@
     import {onMount} from 'svelte';
 
     import Navbar from "../components/navbar.svelte";
-
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
@@ -44,6 +43,11 @@
         pwaCheck = isRunningPWA();
         console.log(`pwa test pass: ${pwaCheck}`);
         console.log(browserTest);
+
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("light");
+            document.body.classList.toggle("dark");
+        });
     });
 </script>
 
@@ -51,6 +55,7 @@
 <!--entry point to url response-->
 <slot />
 <footer>
+    <button id="theme-toggle">Toggle Dark Theme</button>
     {#if pwaCheck}
         <span>Installed</span><span>Client: {browser}</span>
     {:else}
@@ -81,6 +86,9 @@
         justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
+    }
+    footer button {
+        background-color: var(--page-text);
     }
     img {
         margin: 0px;

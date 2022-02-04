@@ -1,4 +1,4 @@
-:root {
+.light {
     --banner-bg-color: #8D3C62;
     --banner-button-color: #B5425D;
     --banner-button-active: #8171a0;
@@ -8,23 +8,27 @@
     --page-bg-color: #FFFFFF;
     --page-text: #000000;
 }
-/*
-    Setting the html and body to the same color as the nav and footer is to stop white bars when over scrolling in iOS
-*/
-html, body, footer {
-    background-color: var(--banner-bg-color);
-    color: var(--banner-text);
+.dark {
+    --banner-bg-color: #8D3C62;
+    --banner-button-color: #B5425D;
+    --banner-button-active: #8171a0;
+    --banner-accent:#860043;
+    --banner-text: #000000;
+
+    --page-bg-color: #000000;
+    --page-text: #FFFFFF;
 }
 /*
     Sets all pages sent to the <slot/> in src/routes/__layout.svelte back to default colors
 */
-#svelte {
+main {
     background-color: var(--page-bg-color);
     color: var(--page-text);
 }
 
-#NavBar {
+#NavBar, footer {
     background-color: var(--banner-bg-color);
+    color: var(--banner-text);
 }
 #NavBar a, button{
     color: var(--banner-text);
