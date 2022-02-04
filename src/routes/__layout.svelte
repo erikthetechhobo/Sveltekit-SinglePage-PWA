@@ -35,6 +35,9 @@
         if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
             browser = "Windows Chrome";
         }
+        if(browserTest.includes("Chrome") && browserTest.includes("Linux")) {
+            browser = "Linux Chrome";
+        }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
