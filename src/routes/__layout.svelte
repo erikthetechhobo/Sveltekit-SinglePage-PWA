@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import Navbar from "../components/Navbar.svelte";
+    import NavBar from "../components/NavBar.svelte";
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
@@ -16,39 +16,29 @@
     }
 
     //detects users browser
-    const possibleBrowsers = [
-        "Safari",
-        "Macos Safari",
-        "Mobile Chrome",
-        "Macos Chrome",
-        "Windows Chrome",
-        "Linux Chrome",
-        "Firefox",
-        "Unknown",
-    ];
-    let browser = possibleBrowsers[7];
-    onMount(() => {
-        var browserTest = navigator.userAgent;
+    let browser;
+    onMount(async () => {
+        var browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
-            browser = possibleBrowsers[0];
+            browser = "Safari";
         }
         if(browserTest.includes("Safari") && browserTest.includes("Macintosh")) {
-            browser = possibleBrowsers[1];
+            browser = "Macos Safari";
         }
         if(browserTest.includes("Chrome")) {
-            browser = possibleBrowsers[2];
+            browser = "Mobile Chrome";
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Macintosh")) {
-            browser = possibleBrowsers[3];
+            browser = "Macos Chrome";
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
-            browser = possibleBrowsers[4];
+            browser = "Windows Chrome";
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Linux")) {
-            browser = possibleBrowsers[5];
+            browser = "Linux Chrome";
         }
         if(browserTest.includes("Firefox")) {
-            browser = possibleBrowsers[6];
+            browser = "Firefox";
         }
         pwaCheck = isRunningPWA();
         console.log(`pwa test pass: ${pwaCheck}`);
@@ -56,7 +46,7 @@
     });
 </script>
 
-<Navbar/>
+<NavBar/>
 <!--entry point to url response-->
 <slot />
 <footer>
