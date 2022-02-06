@@ -17,7 +17,7 @@
         height: calc(100vh - var(--navbar-height) - var(--footer-height));
         padding-left: 10px;
         padding-right: 10px;
-        overflow: auto;
+        overflow-y: auto;
     }
     #PageReturn {
         padding-bottom: calc(var(--footer-height) * 2);
