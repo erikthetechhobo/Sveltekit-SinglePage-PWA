@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import Navbar from "../components/navbar.svelte";
+    import NavBar from "../components/NavBar.svelte";
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
@@ -16,46 +16,50 @@
     }
 
     //detects users browser
-    let browser;
-    onMount(async () => {
-        var browserTest = await navigator.userAgent;
+    const possibleBrowsers = [
+        "Safari",
+        "Macos Safari",
+        "Mobile Chrome",
+        "Macos Chrome",
+        "Windows Chrome",
+        "Linux Chrome",
+        "Firefox",
+        "Unknown",
+    ];
+    var browser = possibleBrowsers[possibleBrowsers.length - 1];
+    onMount(() => {
+        var browserTest = navigator.userAgent;
         if(browserTest.includes("Safari")) {
-            browser = "Safari";
+            browser = possibleBrowsers[0];
         }
         if(browserTest.includes("Safari") && browserTest.includes("Macintosh")) {
-            browser = "Macos Safari";
+            browser = possibleBrowsers[1];
         }
         if(browserTest.includes("Chrome")) {
-            browser = "Mobile Chrome";
+            browser = possibleBrowsers[2];
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Macintosh")) {
-            browser = "Macos Chrome";
+            browser = possibleBrowsers[3];
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
-            browser = "Windows Chrome";
+            browser = possibleBrowsers[4];
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Linux")) {
-            browser = "Linux Chrome";
+            browser = possibleBrowsers[5];
         }
         if(browserTest.includes("Firefox")) {
-            browser = "Firefox";
+            browser = possibleBrowsers[6];
         }
         pwaCheck = isRunningPWA();
         console.log(`pwa test pass: ${pwaCheck}`);
         console.log(browserTest);
-
-        document.getElementById("theme-toggle").addEventListener("click", function() {
-            document.body.classList.toggle("light");
-            document.body.classList.toggle("dark");
-        });
     });
 </script>
 
-<Navbar/>
+<NavBar/>
 <!--entry point to url response-->
 <slot />
 <footer>
-    <button id="theme-toggle">Toggle Dark Theme</button>
     {#if pwaCheck}
         <span>Installed</span><span>Client: {browser}</span>
     {:else}
@@ -77,7 +81,6 @@
     }
     footer {
         min-height: var(--footer-height);
-
         position: -webkit-sticky;
         position: sticky;
         bottom: 0;
@@ -86,9 +89,6 @@
         justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
-    }
-    footer button {
-        background-color: var(--page-text);
     }
     img {
         margin: 0px;

@@ -15,13 +15,13 @@
     --banner-accent:#860043;
     --banner-text: #000000;
 
-    --page-bg-color: #000000;
+    --page-bg-color: #444444 ;
     --page-text: #FFFFFF;
 }
 /*
     Sets all pages sent to the <slot/> in src/routes/__layout.svelte back to default colors
 */
-main {
+body {
     background-color: var(--page-bg-color);
     color: var(--page-text);
 }
