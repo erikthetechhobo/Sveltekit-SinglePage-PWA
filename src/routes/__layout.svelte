@@ -26,7 +26,7 @@
         "Firefox",
         "Unknown",
     ];
-    let browser = possibleBrowsers[possibleBrowsers.length - 1];
+    let browser = possibleBrowsers[7];
     onMount(() => {
         var browserTest = navigator.userAgent;
         if(browserTest.includes("Safari")) {
