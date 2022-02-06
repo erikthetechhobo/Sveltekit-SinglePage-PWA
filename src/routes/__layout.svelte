@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import Navbar from "../components/NavBar.svelte";
+    import Navbar from "../components/Navbar.svelte";
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
