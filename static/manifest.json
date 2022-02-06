@@ -34,7 +34,8 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/",
+    "id": "/?svelte-sppwa",
+    "start_url": "/?svelte-sppwa",
     "display": "standalone",
     "background_color": "#8D3C62",
     "theme_color": "#8D3C62"
