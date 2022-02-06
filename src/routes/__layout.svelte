@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import NavBar from "../components/NavBar.svelte";
+    import Navbar from "../components/navbar.svelte";
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
@@ -46,7 +46,7 @@
     });
 </script>
 
-<NavBar/>
+<Navbar/>
 <!--entry point to url response-->
 <slot />
 <footer>
@@ -71,6 +71,7 @@
     }
     footer {
         min-height: var(--footer-height);
+
         position: -webkit-sticky;
         position: sticky;
         bottom: 0;
