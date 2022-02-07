@@ -7,19 +7,5 @@
     in:fly="{{  x: 60, duration: animationSync, delay: animationSync }}"
     out:fly="{{ x: -60, duration: animationSync }}" 
     >
-    <div id="PageReturn">
-        <slot/>
-    </div>
+    <slot/>
 </main>
-
-<style>
-    main {
-        height: calc(100vh - var(--navbar-height) - var(--footer-height));
-        padding-left: 10px;
-        padding-right: 10px;
-        overflow-y: auto;
-    }
-    #PageReturn {
-        padding-bottom: calc(var(--footer-height) * 2);
-    }
-</style>

@@ -56,6 +56,7 @@
         cursor: pointer;
     }
     #NavBar {
+        z-index: 1;
         height: var(--navbar-height);
         position: -webkit-sticky;
         position: sticky;
