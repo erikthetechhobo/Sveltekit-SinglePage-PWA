@@ -67,7 +67,7 @@
     }
     #Dropdown {
         display: none;
-        height: calc(100vh - var(--navbar-height));
+        height: calc(100vh - var(--navbar-height) - var(--footer-height));
         flex-direction: column;
         position: absolute;
         top: var(--navbar-height);

@@ -14,28 +14,40 @@
         // If neither is true, it's not installed
         return false
     }
-
+    let chosenMessage;
+    let browserMessages = [
+        `To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"`,
+        `To install Web App, tap the &#8942; in the top right of your browser and click install`,
+        `To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser`,
+        `Web app unsupported by browser.`,
+    ];
     //detects users browser
     let browser;
     onMount(async () => {
         var browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
+            chosenMessage = browserMessages[0];
         }
         if(browserTest.includes("Safari") && browserTest.includes("Macintosh")) {
             browser = "Macos Safari";
+            chosenMessage = browserMessages[3];
         }
         if(browserTest.includes("Chrome")) {
             browser = "Mobile Chrome";
+            chosenMessage = browserMessages[1];
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Macintosh")) {
             browser = "Macos Chrome";
+            chosenMessage = browserMessages[3];
         }
         if(browserTest.includes("Chrome") && browserTest.includes("Windows")) {
             browser = "Windows Chrome";
+            chosenMessage = browserMessages[2];
         }
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
+            chosenMessage = browserMessages[3];
         }
         pwaCheck = isRunningPWA();
 
@@ -61,12 +73,8 @@
     {#if pwaCheck}
         <span>Installed</span><span>Client: {browser}</span>
     {:else}
-        {#if browser == "Safari"}
-            <span>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</span><span>Client: {browser}</span>
-        {:else if browser == "Mobile Chrome" || browser == "Macos Chrome"}
-            <span>To install Web App, tap the &#8942; in the top right of your browser and click install</span><span>Client: {browser}</span>
-        {:else if browser == "Windows Chrome"}
-            <span>To install Web App, click the install button located in the address bar</span><span>Client: {browser}</span>
+        {#if browser == "Safari" || browser == "Mobile Chrome" || browser == "Macos Chrome" || browser == "Windows Chrome"}
+            <span>Installable</span><span>Client: {browser}</span>
         {:else}
             <span>Install not supported</span><span>Client: {browser}</span>
         {/if}
@@ -88,9 +96,6 @@
         min-height: var(--footer-height);
         display: flex;
         justify-content: space-between;
-    }
-    img {
-        margin: 0px;
     }
     span {
         padding-left: 10px;
