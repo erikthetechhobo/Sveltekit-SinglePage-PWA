@@ -48,7 +48,9 @@
 
 <Navbar/>
 <!--entry point to url response-->
-<slot />
+<div id="PageReturn">
+    <slot />
+</div>
 <footer>
     {#if pwaCheck}
         <span>Installed</span><span>Client: {browser}</span>
@@ -69,12 +71,15 @@
     :root{
         --footer-height: 30px;
     }
+    #PageReturn{
+        overflow-y: auto;
+        height: calc(100vh - calc(var(--footer-height) + var(--navbar-height)));
+        max-height: calc(100vh - calc(var(--footer-height) + var(--navbar-height)));
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     footer {
         min-height: var(--footer-height);
-
-        position: -webkit-sticky;
-        position: sticky;
-        bottom: 0;
 
         display: flex;
         justify-content: space-between;

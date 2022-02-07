@@ -1,14 +1,18 @@
 /*
     makes the svelte app take up the entire browser window
 */
+html {
+    position: fixed;
+    overflow-y: hidden;
+}
 body {
     position: fixed;
     margin:0;
     padding:0;
-    overflow: auto;
 }
 #svelte {
     display: flex;
+    height: 100vh;
     width: 100vw;
     flex-direction: column;
     font-size: 1rem;
