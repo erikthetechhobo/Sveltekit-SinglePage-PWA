@@ -73,8 +73,7 @@
     }
     #PageReturn{
         overflow-y: auto;
-        height: calc(100vh - calc(var(--footer-height) + var(--navbar-height)));
-        max-height: calc(100vh - calc(var(--footer-height) + var(--navbar-height)));
+        max-height: calc(100vh - var(--footer-height) - var(--navbar-height));
         padding-left: 10px;
         padding-right: 10px;
     }
