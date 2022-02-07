@@ -20,10 +20,15 @@
     function closeInstallPrompt() {
         displayInstallPrompt = false;
     }
+    
     //detects users browser
     let browser;
+    
     onMount(async () => {
-        var browserTest = await navigator.userAgent;
+        let browserTest = await navigator.userAgent;
+        let pageContainer = document.getElementById("PageReturn");
+        pwaCheck = isRunningPWA();
+
         if(browserTest.includes("Safari")) {
             browser = "Safari";
             displayInstallPrompt = true;
@@ -46,22 +51,16 @@
         if(browserTest.includes("Firefox")) {
             browser = "Firefox";
         }
-        pwaCheck = isRunningPWA();
         if(pwaCheck) {
             displayInstallPrompt = false;
         }
 
-        const pageContainer = document.getElementById("PageReturn");
         const updateViewportElements = () => {
             pageContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
         };
-
         window.addEventListener('resize', updateViewportElements);
-
         updateViewportElements();
     });
-
-    
 </script>
 
 <Navbar/>
@@ -69,19 +68,18 @@
 <div id="PageReturn">
     <slot />
         {#if displayInstallPrompt}
-        <div id="InstallMessage">
-            {#if browser == "Safari"}
-                <p>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</p>
-            {/if}
-            {#if browser == "Mobile Chrome" || browser == "Macos Chrome"}
-                <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
-            {/if}
-            {#if browser == "Windows Chrome"}
-                <p>To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser</p>
-                
-            {/if}
-            <button on:click={closeInstallPrompt}>Close</button>
-        </div>
+            <div id="InstallMessage">
+                {#if browser == "Safari"}
+                    <p>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</p>
+                {/if}
+                {#if browser == "Mobile Chrome" || browser == "Macos Chrome"}
+                    <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
+                {/if}
+                {#if browser == "Windows Chrome"}
+                    <p>To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser</p>
+                {/if}
+                <button on:click={closeInstallPrompt}>Close</button>
+            </div>
         {/if}
 </div>
 <footer>
@@ -108,10 +106,8 @@
         font-size: 1rem;
         border-radius: 16px;
         text-align: center;
-        z-index: 3;
     }
     #PageReturn{
-        z-index: 0;
         padding-left: 10px;
         padding-right: 10px;
         overflow-y: auto;
@@ -121,7 +117,6 @@
         min-height: var(--footer-height);
         display: flex;
         justify-content: space-between;
-        z-index: 2;
     }
     span {
         padding-left: 10px;

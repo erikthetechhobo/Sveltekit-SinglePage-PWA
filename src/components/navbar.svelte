@@ -14,7 +14,7 @@
         if(menuActive) {
             menuActive = false;
             menuText = "="
-            document.getElementById("Menu").style.width = "";
+            document.getElementById("NavButton").style.width = "";
             document.getElementById("Dropdown").style.display = "none";
         }
     }
@@ -22,7 +22,7 @@
         if(menuActive == false) {
             menuActive = true;
             menuText = "x";
-            document.getElementById("Menu").style.width = "var(--dropdown-width)";
+            document.getElementById("NavButton").style.width = "var(--dropdown-width)";
             document.getElementById("Dropdown").style.display = "flex";
         }
     }
@@ -30,7 +30,7 @@
 
 <nav id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
     <a id="HomeLink" href="/" on:click={closeMenu}>Home</a>
-    <button id="Menu" on:click={toggleMenu} >{menuText}</button>
+    <button id="NavButton" on:click={toggleMenu} >{menuText}</button>
     <nav id="Dropdown">
         <a class="link" href="/" on:click={closeMenu}>Home</a>
     
@@ -42,10 +42,10 @@
 
 <style>
     :root{
-        --navbar-height: 60px;
+        --navbar-height: 50px;
         --dropdown-width: 200px;
     }
-    #Menu {
+    #NavButton {
         -webkit-appearance: none;
         border-style: none;
         height: var(--navbar-height);
@@ -56,7 +56,6 @@
         cursor: pointer;
     }
     #NavBar {
-        z-index: 1;
         height: var(--navbar-height);
         position: -webkit-sticky;
         position: sticky;
@@ -69,13 +68,12 @@
         display: none;
         height: calc(100vh - var(--navbar-height) - var(--footer-height));
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: var(--navbar-height);
         right: 0;
         width: var(--dropdown-width);
         text-align: left;
         font-size: 1.5rem;
-        padding-bottom: 20px;
     }
     #HomeLink {
         font-size: 2rem;
