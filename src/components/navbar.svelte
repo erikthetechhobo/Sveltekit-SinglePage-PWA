@@ -31,13 +31,13 @@
 <nav id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
     <a id="HomeLink" href="/" on:click={closeMenu}>Home</a>
     <button id="Menu" on:click={toggleMenu} >{menuText}</button>
-    <div id="Dropdown">
+    <nav id="Dropdown">
         <a class="link" href="/" on:click={closeMenu}>Home</a>
     
         <a class="link" href="/pages/settings" on:click={closeMenu}>Settings</a>
     
         <a class="link" href="/pages/longpage" on:click={closeMenu}>Long Page</a>
-    </div>
+    </nav>
 </nav>
 
 <style>
