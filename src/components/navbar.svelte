@@ -69,6 +69,7 @@
     #Dropdown {
         display: none;
         height: calc(100vh - var(--navbar-height) - var(--footer-height));
+        height: calc(-webkit-fill-available - var(--navbar-height) - var(--footer-height));
         flex-direction: column;
         position: fixed;
         top: var(--navbar-height);
