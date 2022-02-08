@@ -107,14 +107,17 @@
         font-size: 1rem;
         border-radius: 16px;
         text-align: center;
+        z-index: 2;
     }
     #PageReturn{
+        z-index: 0;
         padding-left: 10px;
         padding-right: 10px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
     footer {
+        z-index: 1;
         min-height: var(--footer-height);
         display: flex;
         justify-content: space-between;

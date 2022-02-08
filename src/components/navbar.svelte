@@ -54,6 +54,7 @@
         text-align: left;
         font-size: 2rem;
         cursor: pointer;
+        z-index: 1;
     }
     #NavBar {
         height: var(--navbar-height);
