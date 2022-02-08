@@ -3,6 +3,10 @@
 
     import Navbar from "../components/navbar.svelte";
 
+    function refreshPage(){
+        window.location.reload();
+    } 
+
     //detects if running app or in browser
     let pwaCheck;
     const isRunningPWA = () => {
@@ -79,7 +83,7 @@
             {/if}
             {#if browser == "Macos Chrome"}
                 <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
-                <p>If you installed and see this message, <a href="/">click here</a></p>
+                <p>If you installed and see this message, <span id="RefreshLink" on:click={refreshPage()}>Click Here</span></p>
             {/if}
             {#if browser == "Windows Chrome"}
                 <p>To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser</p>
@@ -120,6 +124,11 @@
         padding-right: 10px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+    #RefreshLink {
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
     }
     footer {
         z-index: 1;
