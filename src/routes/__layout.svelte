@@ -83,7 +83,7 @@
             {/if}
             {#if browser == "Macos Chrome"}
                 <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
-                <p>If you installed and see this message, <span id="RefreshLink" on:click={refreshPage()}>Click Here</span></p>
+                <p>If you installed and see this message, <span id="RefreshLink" on:click={refreshPage}>Click Here</span></p>
             {/if}
             {#if browser == "Windows Chrome"}
                 <p>To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser</p>
