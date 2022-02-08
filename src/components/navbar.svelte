@@ -45,6 +45,16 @@
         --navbar-height: 50px;
         --dropdown-width: 200px;
     }
+    #NavBar {
+        height: var(--navbar-height);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        z-index: 1;
+    }
     #NavButton {
         -webkit-appearance: none;
         border-style: none;
@@ -54,16 +64,7 @@
         text-align: left;
         font-size: 2rem;
         cursor: pointer;
-        z-index: 1;
-    }
-    #NavBar {
-        height: var(--navbar-height);
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        
     }
     #Dropdown {
         display: none;
@@ -75,7 +76,6 @@
         width: var(--dropdown-width);
         text-align: left;
         font-size: 1.5rem;
-        z-index: 1;
     }
     #HomeLink {
         font-size: 2rem;
