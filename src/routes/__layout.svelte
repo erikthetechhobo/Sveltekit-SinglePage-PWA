@@ -24,7 +24,6 @@
     let browser;    
     onMount(async () => {
         let browserTest = await navigator.userAgent;
-        let pageContainer = document.getElementById("PageReturn");
         pwaCheck = isRunningPWA();
 
         if(browserTest.includes("Safari")) {
@@ -55,6 +54,8 @@
             displayInstallPrompt = false;
         }
 
+        //auto resizes PageReturn to fill screen
+        let pageContainer = document.getElementById("PageReturn");
         const updateViewportElements = () => {
             pageContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
         };
@@ -73,8 +74,12 @@
             {#if browser == "Safari"}
                 <p>To install Web App, tap the <img src="/icons/shareButton.png" alt="apple share button" height="15px" width="12px"> and "Add to Homescreen"</p>
             {/if}
-            {#if browser == "Mobile Chrome" || browser == "Macos Chrome"}
+            {#if browser == "Mobile Chrome"}
                 <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
+            {/if}
+            {#if browser == "Macos Chrome"}
+                <p>To install Web App, tap the &#8942; in the top right of your browser and click install</p>
+                <p>If you installed and see this message, <a href="/">click here</a></p>
             {/if}
             {#if browser == "Windows Chrome"}
                 <p>To install Web App, click the install button located in the address bar or from &#8942; in the top right of your browser</p>
