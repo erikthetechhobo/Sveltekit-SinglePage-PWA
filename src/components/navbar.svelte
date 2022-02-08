@@ -75,6 +75,7 @@
         width: var(--dropdown-width);
         text-align: left;
         font-size: 1.5rem;
+        z-index: 1;
     }
     #HomeLink {
         font-size: 2rem;
