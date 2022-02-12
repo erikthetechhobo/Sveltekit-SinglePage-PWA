@@ -27,7 +27,6 @@
 
     let browser;    
     onMount(async () => {
-        let pwaCheck = isRunningPWA()
         let browserTest = await navigator.userAgent;
         if(browserTest.includes("Safari")) {
             browser = "Safari";
@@ -66,6 +65,8 @@
         };
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
+
+        pwaCheck = isRunningPWA();
     });
 </script>
 
