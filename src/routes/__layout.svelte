@@ -52,9 +52,6 @@
             browser = "Firefox";
             displayInstallPrompt = false;
         }
-        if(pwaCheck) {
-            displayInstallPrompt = false;
-        }
 
         //auto resizes PageReturn to fill screen
         let pageContainer = document.getElementById("PageReturn");
@@ -67,6 +64,9 @@
         updateViewportElements();
 
         pwaCheck = isRunningPWA();
+        if(pwaCheck) {
+            displayInstallPrompt = false;
+        }
     });
 </script>
 
