@@ -27,9 +27,8 @@
 
     let browser;    
     onMount(async () => {
+        let pwaCheck = isRunningPWA()
         let browserTest = await navigator.userAgent;
-        pwaCheck = isRunningPWA();
-
         if(browserTest.includes("Safari")) {
             browser = "Safari";
             displayInstallPrompt = true;
@@ -60,8 +59,10 @@
 
         //auto resizes PageReturn to fill screen
         let pageContainer = document.getElementById("PageReturn");
+        let sideContainer = document.getElementById("SideMenu");
         const updateViewportElements = () => {
             pageContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
+            sideContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
         };
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();

@@ -1,5 +1,5 @@
 <script>
-    export let menuActive = false;
+    let menuActive = false;
     let menuText = "=";
 
     function toggleMenu() {
@@ -15,15 +15,15 @@
             menuActive = false;
             menuText = "="
             document.getElementById("NavButton").style.width = "";
-            document.getElementById("Dropdown").style.display = "none";
+            document.getElementById("SideMenu").style.display = "none";
         }
     }
     function openMenu() {
         if(menuActive == false) {
             menuActive = true;
             menuText = "x";
-            document.getElementById("NavButton").style.width = "var(--dropdown-width)";
-            document.getElementById("Dropdown").style.display = "flex";
+            document.getElementById("NavButton").style.width = "var(--sidemenu-width)";
+            document.getElementById("SideMenu").style.display = "flex";
         }
     }
 </script>
@@ -31,7 +31,7 @@
 <nav id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
     <a id="HomeLink" href="/" on:click={closeMenu}>Home</a>
     <button id="NavButton" on:click={toggleMenu} >{menuText}</button>
-    <nav id="Dropdown">
+    <nav id="SideMenu">
         <a class="link" href="/" on:click={closeMenu}>Home</a>
     
         <a class="link" href="/pages/settings" on:click={closeMenu}>Settings</a>
@@ -42,8 +42,8 @@
 
 <style>
     :root{
-        --navbar-height: 50px;
-        --dropdown-width: 200px;
+        --navbar-height: 60px;
+        --sidemenu-width: 200px;
     }
     #NavBar {
         height: var(--navbar-height);
@@ -66,14 +66,13 @@
         cursor: pointer;
         
     }
-    #Dropdown {
+    #SideMenu {
         display: none;
-        height: calc(100vh - var(--navbar-height) - var(--footer-height));
         flex-direction: column;
         position: fixed;
         top: var(--navbar-height);
         right: 0;
-        width: var(--dropdown-width);
+        width: var(--sidemenu-width);
         text-align: left;
         font-size: 1.5rem;
     }

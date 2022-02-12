@@ -47,6 +47,6 @@ body {
 #NavBar button {
     background-color: var(--banner-button-color);
 }
-#NavBar #Dropdown {
+#NavBar #SideMenu {
     background-color: var(--banner-accent);
 }
