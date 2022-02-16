@@ -116,7 +116,7 @@ Builds as a node app in /build
     * PageTransition.svelte is a div wrapper that all pages go through for animation to page
 
 ### src/lib
-    * /stores is browser variables
-    * /utils contains detectBrowser.js
-        * This detects the users browser and os and determins if the install message should display
-        * It also detects if the PWA is already running
+* /stores is browser variables
+* /utils contains detectBrowser.js
+    * This detects the users browser and os and determins if the install message should display
+    * It also detects if the PWA is already running
