@@ -101,15 +101,22 @@ Builds as a node app in /build
 * /src/routes/__layout.svelte contains the variables to change UI size in the style tag
     * adjusting the navbar or footer hight automatically changes the returned pages hight
 
-* The layout component also detects the user's browser onMount(). Any needed code for each browser can be added there. For now just a console.log() to show it's working
-
 #### __error.svelte
 
 * users will be redirected to this page in case of a fatal error
 
 ### Components
 
-* /src/components contains two components; navbar.svelte and PageTransition.svelte
+* /src/components
     * navbar.svelte is loaded at the top of the page in __layout.svelte
         * own component cause of complexity and can be deleted for other types of routing
+    * installmessage.svelte
+        * renders install message based on user's browser
+    * DarkMode.svelte swaps the color pallet
     * PageTransition.svelte is a div wrapper that all pages go through for animation to page
+
+### src/lib
+    * /stores is browser variables
+    * /utils contains detectBrowser.js
+        * This detects the users browser and os and determins if the install message should display
+        * It also detects if the PWA is already running
