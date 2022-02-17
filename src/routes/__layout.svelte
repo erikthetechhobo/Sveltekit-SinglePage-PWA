@@ -22,6 +22,8 @@
 
 <Navbar/>
 <div id="PageReturn">
+    {$browser}
+    {$os}
 <!--entry point to url response-->
     <slot />
 <!--entry point to url response-->

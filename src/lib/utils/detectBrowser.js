@@ -12,6 +12,7 @@ async function PWAcheck() {
 }
 async function readBrowser() {
     let browserData = await navigator;
+    //console.log(browserData);
     if(browserData.vendor == 'Google Inc.') {
         browser.set('Chrome');
         return 'Chrome';
@@ -28,6 +29,7 @@ async function readBrowser() {
 
 async function readOS() {
     let osData = await navigator;
+    //console.log(osData);
     if(osData.platform == 'Win32') {
         os.set('Windows');
         return 'Windows';
@@ -39,6 +41,10 @@ async function readOS() {
     if(osData.platform == 'iPhone') {
         os.set('iOS');
         return 'iOS';
+    }
+    if(osData.platform == 'Linux x86_64') {
+        os.set('Linux');
+        return 'Linux';
     }
     if(osData.platform.includes('Linux') || osData.platform.includes('Android')) {
         os.set('Android');
