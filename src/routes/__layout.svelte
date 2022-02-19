@@ -74,9 +74,9 @@
         justify-content: space-between;
     }
     img {
-        height: 25px;
-        width: 25px;
-        object-fit: contain;
+        height: 40px;
+        width: 40px;
+        object-fit: scale-down;
     }
     span {
         padding-left: 10px;
