@@ -9,11 +9,16 @@
   
     onMount(async () => {
         await detectBrowser.isInstallable();
-        
         //auto resizes PageReturn to fill screen
         let pageContainer = document.getElementById("PageReturn");
         const updateViewportElements = () => {
             pageContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
+            if(pageContainer.style.height == pageContainer.scrollHeight) {
+                pageContainer.style.overflowY = `hidden`;
+            }
+            else {
+                pageContainer.style.overflowY = `auto`;
+            }
         };
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
