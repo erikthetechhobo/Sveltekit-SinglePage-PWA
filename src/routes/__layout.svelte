@@ -7,6 +7,10 @@
     import Navbar from "../components/navbar.svelte";
     import InstallMessage from "../components/installmessage.svelte";
   
+    function refreshPage(){
+        window.location.reload();
+    }
+
     onMount(async () => {
         await detectBrowser.isInstallable();
         //auto resizes PageReturn to fill screen
@@ -33,6 +37,7 @@
     {#if $displayInstall}
         <InstallMessage/>
     {/if}
+    <button id="RefreshButton" on:click={refreshPage}><img src="/icons/refresh.png" alt="refresh page made by 'Arkinasi'" /></button>
 </div>
 <footer>
     {#if $isPWArunning}
@@ -55,10 +60,23 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    #RefreshButton{
+        position: absolute;
+        border-radius: 20px;
+        bottom: calc(var(--footer-height) + 10px);
+        right: 10px;
+        height: 40px;
+        width: 40px;
+    }
     footer {
         min-height: var(--footer-height);
         display: flex;
         justify-content: space-between;
+    }
+    img {
+        height: 25px;
+        width: 25px;
+        object-fit: contain;
     }
     span {
         padding-left: 10px;

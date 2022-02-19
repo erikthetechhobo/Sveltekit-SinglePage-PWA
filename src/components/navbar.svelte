@@ -66,6 +66,9 @@
         cursor: pointer;
         
     }
+    #RefreshButton {
+        margin: 5px;
+    }
     #SideMenu {
         display: none;
         flex-direction: column;
@@ -78,7 +81,8 @@
     }
     #HomeLink {
         font-size: 2rem;
-        padding-left: 10px
+        padding-left: 10px;
+        flex-grow: 1;
     }
     .link{
         padding-left: 2rem;
