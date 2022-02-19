@@ -66,9 +66,6 @@
         cursor: pointer;
         
     }
-    #RefreshButton {
-        margin: 5px;
-    }
     #SideMenu {
         display: none;
         flex-direction: column;
