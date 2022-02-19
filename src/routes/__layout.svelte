@@ -54,8 +54,6 @@
     #PageReturn{
         padding-left: 10px;
         padding-right: 10px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
     }
     footer {
         min-height: var(--footer-height);
