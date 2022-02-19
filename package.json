@@ -7,9 +7,6 @@
     "build": "svelte-kit build",
     "preview": "svelte-kit preview"
   },
-  "engines": {
-    "node": "=16"
-  },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.67",
     "@sveltejs/kit": "^1.0.0-next.241",
