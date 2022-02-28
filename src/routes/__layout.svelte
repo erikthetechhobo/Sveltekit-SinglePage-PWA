@@ -20,9 +20,10 @@
     onMount(async () => {
         await detectBrowser.isInstallable();
 
+        let iosResize = document.getElementById("App");
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
-        document.getElementById("App").addEventListener('click', updateViewportElements);
+        iosResize.addEventListener('click', updateViewportElements);
         updateViewportElements();
     });
 </script>
