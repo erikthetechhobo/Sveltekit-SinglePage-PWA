@@ -10,5 +10,6 @@ body {
     padding:0;
 }
 #svelte {
+    position: fixed;
     width: 100vw;
 }

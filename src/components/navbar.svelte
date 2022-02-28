@@ -52,9 +52,6 @@
     }
     #NavBar {
         height: var(--navbar-height);
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
