@@ -17,13 +17,14 @@
         }
     };
 
+    setInterval(updateViewportElements(), 1000);
+    
     onMount(async () => {
         await detectBrowser.isInstallable();
 
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
-        setInterval(updateViewportElements(), 1000);
     });
 </script>
 
