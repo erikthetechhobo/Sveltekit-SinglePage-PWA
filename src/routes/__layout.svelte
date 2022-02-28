@@ -17,8 +17,6 @@
         }
     };
 
-    setInterval(updateViewportElements(), 1000);
-    
     onMount(async () => {
         await detectBrowser.isInstallable();
 
