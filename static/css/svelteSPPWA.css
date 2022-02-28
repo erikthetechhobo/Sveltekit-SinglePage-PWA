@@ -4,7 +4,6 @@
 html, body {
     position: fixed;
     overflow: hidden;
-    height: -webkit-fill-available;
 }
 body {
     margin:0;

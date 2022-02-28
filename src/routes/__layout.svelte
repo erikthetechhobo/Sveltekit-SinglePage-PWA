@@ -6,77 +6,68 @@
 
     import Navbar from "../components/navbar.svelte";
     import InstallMessage from "../components/installmessage.svelte";
-  
-    function refreshPage(){
-        window.location.reload();
-    }
+
+    function updateViewportElements() {
+        let pageConent = document.getElementById("PageContent");
+        pageConent.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
+        if(pageConent.style.height == pageConent.scrollHeight) {
+            pageConent.style.overflowY = `auto`;
+        }
+        else {
+            pageConent.style.overflowY = `auto`;
+        }
+    };
 
     onMount(async () => {
         await detectBrowser.isInstallable();
         //auto resizes PageReturn to fill screen
-        let pageContainer = document.getElementById("PageReturn");
-        const updateViewportElements = () => {
-            pageContainer.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
-            if(pageContainer.style.height == pageContainer.scrollHeight) {
-                pageContainer.style.overflowY = `hidden`;
-            }
-            else {
-                pageContainer.style.overflowY = `auto`;
-            }
-        };
+        
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
     });
 </script>
 
-<Navbar/>
-<div id="PageReturn">
+<div id="App">
+    <Navbar/>
 <!--entry point to url response-->
-    <slot />
+    <div id="PageContent">
+        <slot />
+    </div>
 <!--entry point to url response-->
     {#if $displayInstall}
         <InstallMessage/>
     {/if}
-    <button id="RefreshButton" on:click={refreshPage}><img src="/icons/refresh.png" alt="refresh page made by 'Arkinasi'" /></button>
-</div>
-<footer>
-    {#if $isPWArunning}
-        <span>Installed</span>
-    {:else}
-        {#if ($browser == "Chrome" && ($os == "Mac" || $os == "Windows" || $os == "Android")) || ($browser == "Safari" && $os == "iOS")}
-            <span>Can be Installed</span>
+    <footer>
+        {#if $isPWArunning}
+            <span>Installed</span>
         {:else}
-            <span>Install not supported</span>
+            {#if ($browser == "Chrome" && ($os == "Mac" || $os == "Windows" || $os == "Android")) || ($browser == "Safari" && $os == "iOS")}
+                <span>Can be Installed</span>
+            {:else}
+                <span>Install not supported</span>
+            {/if}
         {/if}
-    {/if}
-    <span>Client: {$os} {$browser}</span>
-</footer>
+        <span>Client: {$os} {$browser}</span>
+    </footer>
+</div>
 
 <style>
     :root{
         --footer-height: 30px;
     }
-    #PageReturn{
+    #App{
+        display: flex-box;
+        flex-direction: column;
+        overflow-y: hidden;
+    }
+    #PageContent{
         padding-left: 10px;
         padding-right: 10px;
-    }
-    #RefreshButton{
-        position: absolute;
-        border-radius: 20px;
-        bottom: calc(var(--footer-height) + 10px);
-        right: 10px;
-        height: 40px;
-        width: 40px;
     }
     footer {
         min-height: var(--footer-height);
         display: flex;
         justify-content: space-between;
-    }
-    img {
-        height: 40px;
-        width: 40px;
-        object-fit: scale-down;
     }
     span {
         padding-left: 10px;

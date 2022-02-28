@@ -2,6 +2,10 @@
     let menuActive = false;
     let menuText = "=";
 
+    function refreshPage(){
+        window.location.reload();
+    }
+    
     function toggleMenu() {
         if(menuActive) {
             closeMenu();
@@ -30,6 +34,7 @@
 
 <nav id="NavBar" on:mouseleave={closeMenu} on:blur={closeMenu}>
     <a id="HomeLink" href="/" on:click={closeMenu}>Home</a>
+    <span id="RefreshButton" on:click={refreshPage}>&#x21bb;</span>
     <button id="NavButton" on:click={toggleMenu} >{menuText}</button>
     <nav id="SideMenu">
         <a class="link" href="/" on:click={closeMenu}>Home</a>
@@ -65,6 +70,19 @@
         font-size: 2rem;
         cursor: pointer;
         
+    }
+    #RefreshButton{
+        font-size: 3rem;
+        border-radius: 16px;
+        right: 20px;
+        color: var(--banner-bg-color);
+        background-color: var(--alert-color);
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    #RefreshButton:hover{
+        color: var(--alert-color);
+        background-color: var(--banner-button-active);
     }
     #SideMenu {
         display: none;
