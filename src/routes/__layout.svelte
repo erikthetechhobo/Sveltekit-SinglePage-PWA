@@ -4,12 +4,11 @@
     import {browser, os, displayInstall, isPWArunning} from '$lib/stores/browserData'; 
     import detectBrowser from '$lib/utils/detectBrowser';
 
-    import Navbar from "../components/navbar.svelte";
     import InstallMessage from "../components/installmessage.svelte";
 
     function updateViewportElements() {
         let pageConent = document.getElementById("PageContent");
-        pageConent.style.height = `calc(${window.innerHeight}px - var(--footer-height) - var(--navbar-height))`;
+        pageConent.style.height = `calc(${window.innerHeight}px - var(--footer-height)`;
         if(pageConent.style.height == pageConent.scrollHeight) {
             pageConent.style.overflowY = `auto`;
         }
@@ -28,7 +27,6 @@
 </script>
 
 <div id="App">
-    <Navbar/>
 <!--entry point to url response-->
     <div id="PageContent">
         <slot />
@@ -61,8 +59,7 @@
         overflow-y: hidden;
     }
     #PageContent{
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 10px 10px 0 10px;
     }
     footer {
         min-height: var(--footer-height);

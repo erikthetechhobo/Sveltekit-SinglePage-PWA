@@ -1,4 +1,5 @@
-
+<a href="/">Home</a>
+<a href="/longpage" >Long Page</a>
 <h1>big page</h1>
 <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna eget est lorem ipsum dolor sit amet. Risus ultricies tristique nulla aliquet enim tortor. Purus non enim praesent elementum facilisis leo vel fringilla est. In iaculis nunc sed augue lacus viverra. In egestas erat imperdiet sed euismod nisi porta lorem. Diam in arcu cursus euismod quis viverra nibh. Duis at tellus at urna condimentum mattis pellentesque id nibh. Imperdiet proin fermentum leo vel orci porta. Arcu risus quis varius quam quisque id diam vel quam. Sapien et ligula ullamcorper malesuada proin libero. <br>
