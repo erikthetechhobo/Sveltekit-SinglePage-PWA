@@ -22,6 +22,7 @@
         //auto resizes PageReturn to fill screen
         
         window.addEventListener('resize', updateViewportElements);
+        window.addEventListener('scroll', updateViewportElements);
         updateViewportElements();
     });
 </script>
