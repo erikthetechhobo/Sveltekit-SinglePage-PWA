@@ -37,6 +37,6 @@
     #RefreshLink {
         cursor: pointer;
         text-decoration: underline;
-        color: blue;
+        color: White;
     }
 </style>
