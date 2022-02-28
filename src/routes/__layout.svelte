@@ -20,10 +20,10 @@
     onMount(async () => {
         await detectBrowser.isInstallable();
 
-        let scrollfixer = document.getElementById("PageContent");
+        let iosScrollFixer = document.getElementById("PageContent");
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
-        scrollfixer.addEventListener('scroll', updateViewportElements);
+        iosScrollFixer.addEventListener('touchstart', updateViewportElements());
         updateViewportElements();
     });
 </script>
