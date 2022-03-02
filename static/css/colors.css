@@ -1,4 +1,4 @@
-.light {
+:root {
     --banner-bg-color: #8D3C62;
     --banner-button-color: #B5425D;
     --banner-button-active: #8171a0;
@@ -7,18 +7,6 @@
 
     --page-bg-color: #FFFFFF;
     --page-text: #000000;
-
-    --alert-color: #6faa69;
-}
-.dark {
-    --banner-bg-color: #8D3C62;
-    --banner-button-color: #B5425D;
-    --banner-button-active: #8171a0;
-    --banner-accent:#860043;
-    --banner-text: #000000;
-
-    --page-bg-color: #444444 ;
-    --page-text: #FFFFFF;
 
     --alert-color: #6faa69;
 }

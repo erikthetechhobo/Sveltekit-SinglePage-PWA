@@ -5,11 +5,9 @@ html, body {
     position: fixed;
     overflow: hidden;
 }
-body {
-    margin:0;
-    padding:0;
-}
 #svelte {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
 }

@@ -27,7 +27,7 @@
 <style>
     #InstallMessage {
         position: fixed;
-        bottom: calc(var(--footer-height) + 10px);
+        bottom: 10px;
         right: 25%;
         left: 25%;
         font-size: 1rem;
