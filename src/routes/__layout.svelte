@@ -5,15 +5,24 @@
     import detectBrowser from '$lib/utils/detectBrowser';
 
     import InstallMessage from "../components/installmessage.svelte";
+import { claim_component } from 'svelte/internal';
 
     function updateViewportElements() {
-        let pageConent = document.getElementById("PageContent");
-        pageConent.style.height = `calc(${window.innerHeight}px - var(--footer-height)`;
-        if(pageConent.style.height == pageConent.scrollHeight) {
-            pageConent.style.overflowY = `auto`;
+        let appHeight = document.getElementById("App");
+        if($os == 'iOS'){
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            appHeight.style.height = `calc(var(--vh, 1vh) * 100)`;
         }
         else {
-            pageConent.style.overflowY = `auto`;
+            appHeight.style.height = `${window.innerHeight}px`;
+        }
+        console.log(`appHeight: ${appHeight.style.height}`);
+        if(appHeight.style.height < appHeight.scrollHeight) {
+            appHeight.style.overflowY = `hidden`;
+        }
+        else {
+            appHeight.style.overflowY = `scroll`;
         }
     };
 
@@ -28,25 +37,12 @@
 
 <div id="App">
 <!--entry point to url response-->
-    <div id="PageContent">
-        <slot />
-    </div>
+
+    <slot />
 <!--entry point to url response-->
     {#if $displayInstall}
         <InstallMessage/>
     {/if}
-    <footer>
-        {#if $isPWArunning}
-            <span>Installed</span>
-        {:else}
-            {#if ($browser == "Chrome" && ($os == "Mac" || $os == "Windows" || $os == "Android")) || ($browser == "Safari" && $os == "iOS")}
-                <span>Can be Installed</span>
-            {:else}
-                <span>Install not supported</span>
-            {/if}
-        {/if}
-        <span>Client: {$os} {$browser}</span>
-    </footer>
 </div>
 
 <style>
@@ -54,20 +50,8 @@
         --footer-height: 30px;
     }
     #App{
-        display: flex-box;
+        position: sticky;
         flex-direction: column;
-        overflow-y: hidden;
-    }
-    #PageContent{
-        padding: 10px 10px 0 10px;
-    }
-    footer {
-        min-height: var(--footer-height);
-        display: flex;
-        justify-content: space-between;
-    }
-    span {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 10px;
     }
 </style>
