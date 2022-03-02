@@ -5,7 +5,6 @@
     import detectBrowser from '$lib/utils/detectBrowser';
 
     import InstallMessage from "../components/installmessage.svelte";
-import { claim_component } from 'svelte/internal';
 
     function updateViewportElements() {
         let appHeight = document.getElementById("App");
@@ -32,9 +31,7 @@ import { claim_component } from 'svelte/internal';
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
-        if($os == 'iOS'){
-            setInterval(updateViewportElements, 1000);
-        }
+        setInterval(updateViewportElements, 1000);
     });
 </script>
 
