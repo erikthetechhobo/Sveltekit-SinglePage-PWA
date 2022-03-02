@@ -32,6 +32,9 @@ import { claim_component } from 'svelte/internal';
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
+        if($os == 'iOS'){
+            setInterval(updateViewportElements, 1000);
+        }
     });
 </script>
 
