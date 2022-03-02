@@ -31,7 +31,9 @@
         //auto resizes PageReturn to fill screen
         window.addEventListener('resize', updateViewportElements);
         updateViewportElements();
-        setInterval(updateViewportElements, 1000);
+        if($os === 'iOS'){
+            setInterval(updateViewportElements, 1000);
+        }
     });
 </script>
 
