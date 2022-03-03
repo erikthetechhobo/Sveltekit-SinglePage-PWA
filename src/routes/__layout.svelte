@@ -6,15 +6,20 @@
 
     import InstallMessage from "../components/installmessage.svelte";
 
+    var myInterval;
     function updateViewportElements() {
         let appHeight = document.getElementById("svelte");
         appHeight.style.height = `${window.innerHeight}px`
-        console.log(appHeight.style.height, appHeight.scrollHeight);
-        if(appHeight.style.height == appHeight.scrollHeight) {
+        console.log(appHeight.style.height, `${appHeight.scrollHeight}px`);
+        if(appHeight.style.height == `${appHeight.scrollHeight}px`) {
             appHeight.style.overflowY = `hidden`;
         }
         else {
             appHeight.style.overflowY = `auto`;
+        }
+        detectBrowser.isInstallable()
+        if($isPWArunning) {
+            clearInterval(myInterval);
         }
     };
 
@@ -24,12 +29,16 @@
         //auto resizes PageReturn to fill screen
         await window.addEventListener('resize', updateViewportElements);
         await updateViewportElements();
+
+        myInterval = setInterval(updateViewportElements, 1000);
     });
 </script>
 
 <div id="App">
+    <a href="/">Home</a>
+    <a href="/pages/fullpage" >fullpage</a>
 <!--entry point to url response-->
-    <slot />
+        <slot />
 <!--entry point to url response-->
     {#if $displayInstall}
         <InstallMessage/>
