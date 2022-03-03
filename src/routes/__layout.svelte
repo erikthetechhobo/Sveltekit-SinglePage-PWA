@@ -17,7 +17,7 @@
         else {
             appHeight.style.overflowY = `auto`;
         }
-        detectBrowser.isInstallable()
+        detectBrowser.PWAcheck()
         if($isPWArunning) {
             clearInterval(myInterval);
         }

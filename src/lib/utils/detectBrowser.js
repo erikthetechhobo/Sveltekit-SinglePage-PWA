@@ -2,12 +2,19 @@ import {browser, os, displayInstall, isPWArunning} from '$lib/stores/browserData
 
 async function PWAcheck() {
     // For Safari
-    if(window.navigator.standalone) return true
+    if(window.navigator.standalone) {
+        isPWArunning.set(true);
+        return true;
+    }
 
     // For Chrome
-    if(window.matchMedia('(display-mode: standalone)').matches) return true
+    if(window.matchMedia('(display-mode: standalone)').matches) {
+        isPWArunning.set(true);
+        return true;
+    }
 
     // If neither is true, it's not installed
+    isPWArunning.set(false);
     return false
 }
 async function readBrowser() {
@@ -60,7 +67,6 @@ async function isInstallable() {
     let browserDetected = await readBrowser();
     let osDetected = await readOS();
     if(pwaChecker) {
-        isPWArunning.set(true);
         displayInstall.set(false);
         return;
     }
