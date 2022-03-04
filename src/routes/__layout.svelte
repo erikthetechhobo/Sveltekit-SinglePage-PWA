@@ -12,7 +12,7 @@
         appHeight.style.height = `${window.innerHeight}px`
         console.log(appHeight.style.height, `${appHeight.scrollHeight}px`);
         if(appHeight.style.height == `${appHeight.scrollHeight}px`) {
-            appHeight.style.overflowY = `hidden`;
+            appHeight.style.overflowY = `inherit`;
         }
         else {
             appHeight.style.overflowY = `auto`;
