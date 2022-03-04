@@ -22,21 +22,19 @@
             clearInterval(myInterval);
         }
     };
-
     onMount(async () => {
         await detectBrowser.isInstallable();
 
         //auto resizes PageReturn to fill screen
         await window.addEventListener('resize', updateViewportElements);
+        myInterval = await setInterval(updateViewportElements, 1000);
         await updateViewportElements();
-
-        myInterval = setInterval(updateViewportElements, 1000);
     });
 </script>
 
 <div id="App">
     <a href="/">Home</a>
-    <a href="/pages/fullpage" >fullpage</a>
+    <a href="/pages/unityplayer">unityplayer</a>
 <!--entry point to url response-->
         <slot />
 <!--entry point to url response-->
