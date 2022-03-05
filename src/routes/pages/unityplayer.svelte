@@ -28,7 +28,7 @@
     }
     onMount(async () => {
         createCanvas();
-        createScript();    
+        //createScript();    
     });
 </script>
 <div id="ThisPage">
