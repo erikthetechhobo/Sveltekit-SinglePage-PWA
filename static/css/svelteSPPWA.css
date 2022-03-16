@@ -4,6 +4,7 @@
 html, body {
     position: fixed;
     overflow: hidden;
+    margin: 0;
 }
 #svelte {
     position: fixed;

@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import {browser, os, displayInstall, isPWArunning} from '$lib/stores/browserData'; 
+    import {displayInstall, isPWArunning} from '$lib/stores/browserData'; 
     import detectBrowser from '$lib/utils/detectBrowser';
 
     import InstallMessage from "../components/installmessage.svelte";
@@ -10,9 +10,9 @@
     function updateViewportElements() {
         let appHeight = document.getElementById("svelte");
         appHeight.style.height = `${window.innerHeight}px`
-        console.log(appHeight.style.height, `${appHeight.scrollHeight}px`);
+        //console.log("svelte div height: " + appHeight.style.height + `\npage height: ${appHeight.scrollHeight}px`);
         if(appHeight.style.height == `${appHeight.scrollHeight}px`) {
-            appHeight.style.overflowY = `inherit`;
+            appHeight.style.overflowY = `hidden`;
         }
         else {
             appHeight.style.overflowY = `auto`;
@@ -32,20 +32,9 @@
     });
 </script>
 
-<div id="App">
-    <a href="/">Home</a>
-    <a href="/pages/unityplayer">unityplayer</a>
 <!--entry point to url response-->
-        <slot />
+<slot />
 <!--entry point to url response-->
-    {#if $displayInstall}
-        <InstallMessage/>
-    {/if}
-</div>
-
-<style>
-    #App{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-</style>
+{#if $displayInstall}
+    <InstallMessage/>
+{/if}
