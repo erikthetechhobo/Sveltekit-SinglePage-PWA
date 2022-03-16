@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
 
-    import {displayInstall, isPWArunning} from '$lib/stores/browserData'; 
+    import {displayInstall} from '$lib/stores/browserData'; 
     import detectBrowser from '$lib/utils/detectBrowser';
 
     import InstallMessage from "../components/installmessage.svelte";
@@ -21,9 +21,9 @@
     onMount(async () => {
         await detectBrowser.isInstallable();
 
-        //auto resizes PageReturn to fill screen
         await window.addEventListener('resize', updateViewportElements);
-        myInterval = await setInterval(updateViewportElements, 1000);
+        myInterval = await setInterval(updateViewportElements, 3000);
+        await updateViewportElements();
     });
 </script>
 

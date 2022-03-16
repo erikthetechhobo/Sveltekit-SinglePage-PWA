@@ -1,6 +1,6 @@
 # Sveltekit Single Page PWA
 
-This is a template for a Single Page Progressive Web App(SPPWA)
+This is a template for a Unity3D html build game with PWA capabilities
 
 Viewable [here](https://sveltekit-singlepage-pwa.herokuapp.com/)
 
@@ -87,8 +87,7 @@ Builds as a node app in /build
 
 #### __layout.svelte
 
-* /src/routes/__layout.svelte contains the variables to change UI size in the style tag
-    * adjusting the navbar or footer hight automatically changes the returned pages hight
+* pages will take up the whole viewport
 
 #### __error.svelte
 
@@ -97,12 +96,8 @@ Builds as a node app in /build
 ### Components
 
 * /src/components
-    * navbar.svelte is loaded at the top of the page in __layout.svelte
-        * own component cause of complexity and can be deleted for other types of routing
     * installmessage.svelte
-        * renders install message based on user's browser
-    * DarkMode.svelte swaps the color pallet
-    * PageTransition.svelte is a div wrapper that all pages go through for animation to page
+        * renders install message based on user's browser and os
 
 ### src/lib
 * /stores is browser variables
