@@ -17,10 +17,6 @@
         else {
             appHeight.style.overflowY = `auto`;
         }
-        detectBrowser.PWAcheck()
-        if($isPWArunning) {
-            clearInterval(myInterval);
-        }
     };
     onMount(async () => {
         await detectBrowser.isInstallable();
@@ -28,7 +24,6 @@
         //auto resizes PageReturn to fill screen
         await window.addEventListener('resize', updateViewportElements);
         myInterval = await setInterval(updateViewportElements, 1000);
-        await updateViewportElements();
     });
 </script>
 

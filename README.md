@@ -1,6 +1,6 @@
 # Sveltekit Single Page PWA
 
-This is a template for a Single Page Progressive Web App(SPPWA)
+This is a template for a Unity3D html build game with PWA capabilities
 
 Viewable [here](https://sveltekit-singlepage-pwa.herokuapp.com/)
 
@@ -97,7 +97,7 @@ Builds as a node app in /build
 
 * /src/components
     * installmessage.svelte
-        * renders install message based on user's browser
+        * renders install message based on user's browser and os
 
 ### src/lib
 * /stores is browser variables
