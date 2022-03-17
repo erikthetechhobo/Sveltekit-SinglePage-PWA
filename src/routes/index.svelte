@@ -1,20 +1,24 @@
 <script>
     import {onMount} from 'svelte';
 
-    function hideStartButton() {
-        var startButton = document.getElementById('StartButton');
-        startButton.style.display = 'none';
-    }
-
     function createScript() {
         return new Promise(resolve => {
             let unityLoaderScript = document.createElement('script');
             unityLoaderScript.src = '/Build/build1.loader.js';
             unityLoaderScript.id = 'myUnityLoaderScript';
             document.getElementById('UnityContainer').appendChild(unityLoaderScript);
-            resolve('script created');
+            resolve(console.log('Unity script created'));
         })
     }
+
+    function hideStartButton() {
+        return new Promise(resolve => {
+            var startButton = document.getElementById('StartButton');
+            startButton.style.display = 'none';
+            resolve(console.log('start button hidden'));
+        })
+    }
+
     function loadGame() {
         return new Promise(resolve =>{
             createUnityInstance(document.getElementById("UnityCanvas"), 
@@ -29,19 +33,20 @@
                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                 }
-            )
-            hideStartButton()
-            resolve('game loaded');
+            );
+            resolve(hideStartButton(), console.log('game started'));
         })
     }
     onMount(async () => {
         createScript();
     });
 </script>
+
 <div id="UnityContainer">
     <canvas id="UnityCanvas" />
+    <button id="StartButton" on:click={loadGame}>Start Unity</button>
 </div>
-<button id="StartButton" on:click={loadGame}>Start Unity</button>
+
 <style>
     #UnityCanvas {
         display: block;
