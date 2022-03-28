@@ -4,7 +4,7 @@
     function createScript() {
         return new Promise(resolve => {
             let unityLoaderScript = document.createElement('script');
-            unityLoaderScript.src = '/Build/build1.loader.js';
+            unityLoaderScript.src = '/Build/Build.loader.js';
             unityLoaderScript.id = 'myUnityLoaderScript';
             document.getElementById('UnityContainer').appendChild(unityLoaderScript);
             resolve(console.log('Unity script created'));
@@ -23,9 +23,9 @@
         return new Promise(resolve =>{
             createUnityInstance(document.getElementById("UnityCanvas"), 
                 {
-                    dataUrl: "/Build/build1.data",
-                    frameworkUrl: "/Build/build1.framework.js",
-                    codeUrl: "/Build/build1.wasm",
+                    dataUrl: "/Build/Build.data",
+                    frameworkUrl: "/Build/Build.framework.js",
+                    codeUrl: "/Build/Build.wasm",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "DefaultCompany",
                     productName: "htmlBuildTest",
