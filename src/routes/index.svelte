@@ -28,7 +28,6 @@
         })
     }
     onMount(async () => {
-        await hideStartButton();
         await loadGame();
     });
 </script>
