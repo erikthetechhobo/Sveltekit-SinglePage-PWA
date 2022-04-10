@@ -1,16 +1,6 @@
 <script>
     import {onMount} from 'svelte';
 
-    function createScript() {
-        return new Promise(resolve => {
-            let unityLoaderScript = document.createElement('script');
-            unityLoaderScript.src = '/Build/Build.loader.js';
-            unityLoaderScript.id = 'myUnityLoaderScript';
-            document.getElementById('UnityContainer').appendChild(unityLoaderScript);
-            resolve(console.log('Unity script created'));
-        })
-    }
-
     function hideStartButton() {
         return new Promise(resolve => {
             var startButton = document.getElementById('StartButton');
@@ -38,13 +28,15 @@
         })
     }
     onMount(async () => {
-        createScript();
+        await hideStartButton();
+        await loadGame();
     });
 </script>
 
 <div id="UnityContainer">
     <canvas id="UnityCanvas" />
     <button id="StartButton" on:click={loadGame}>Start Unity</button>
+    <script src="/Build/Build.loader.js" id="UnityLoaderScript"></script>
 </div>
 
 <style>
