@@ -30,6 +30,7 @@
 <!--entry point to url response-->
 <slot />
 <!--entry point to url response-->
+
 {#if $displayInstall}
     <InstallMessage/>
 {/if}
